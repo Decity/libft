@@ -1,15 +1,4 @@
-// Function name ft_striteri
-// Prototype void ft_striteri(char *s, void (*f)(unsigned int,
-// char*));
-// Turn in files -
-// Parameters s: The string on which to iterate.
-// f: The function to apply to each character.
-// Return value None
-// External functs. None
-// Description Applies the function ’f’ on each character of
-// the string passed as argument, passing its index
-// as first argument. Each character is passed by
-// address to ’f’ to be modified if necessary.
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
@@ -17,7 +6,20 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 
 	i = 0;
 	if (!s || !f)
-		return
+		return;
 	while (s[i])
 		f(i, &s[i++]);
+}
+
+void print_index_and_char(unsigned int index, char *c) {
+    printf("Index: %u, Character: %c\n", index, *c);
+}
+
+int main() {
+    char str[] = "Hello, World!";
+
+    printf("Original string: %s\n", str);
+	ft_striteri(str, print_index_and_char);
+
+    return (0);
 }
