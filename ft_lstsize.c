@@ -1,17 +1,20 @@
-// Function name ft_lstsize
-// Prototype int ft_lstsize(t_list *lst);
-// Turn in files -
-// Parameters lst: The beginning of the list.
-// Return value The length of the list
-// External functs. None
-// Description Counts the number of nodes in a list
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/02 17:58:07 by elie              #+#    #+#             */
+/*   Updated: 2023/11/02 17:58:09 by elie             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {
 	int	i;
-	
+
 	i = 0;
 	if (lst == NULL)
 		return (0);
