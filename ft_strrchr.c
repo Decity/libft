@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchar.c                                      :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 13:37:34 by ebayat            #+#    #+#             */
-/*   Updated: 2023/10/12 13:42:52 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/05 14:07:26 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 
 char	*ft_strrchr(const char *s, int c)
@@ -31,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (s[j])
 	{
 		if (s[j] == c)
-			return (&s[j]);
+			return ((char*)&s[j]);
 		j--;
 	}
 	return (NULL);

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:30:32 by ebayat            #+#    #+#             */
-/*   Updated: 2023/10/17 15:31:05 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/05 13:38:40 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
 	write(fd, &s, 1);
-	write(fd, '\n', 1);
+	write(fd, "\n", 1);
 }
