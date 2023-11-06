@@ -48,6 +48,21 @@ void tester(int (*f)(int)){
 	printf("\n");
 }
 
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + ' ');
+	return (c);
+}
+
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c - ' ');
+	return (c);
+}
+
+
 
 int	main(){
 	printf("alnum:\n");
@@ -60,5 +75,10 @@ int	main(){
 	tester(ft_isdigit);
 	printf("isprint:\n");
 	tester(ft_isprint);
+
+	printf("%c \n", ft_toupper('x'));
+
+	printf("%c \n", ft_tolower('X'));
+
 	return (0);
 }
