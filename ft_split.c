@@ -1,36 +1,96 @@
-// int return_array_size(char const *s, char c)
+#include <stdlib.h>
+#include <stdio.h>
+
+char	*ft_strndup(const char *src, size_t n)
+{
+	char	*dest;
+	size_t	i;
+
+	dest = (char *)malloc(n + 1);
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+size_t	count_parts(const char *str, char delimiter)
+{
+	size_t count = 0;
+	size_t i = 0;
+	int inside_word = 0;
+
+	while (str[i])
+	{
+		if (str[i] == delimiter)
+		{
+			if (inside_word)
+			{
+				count++;
+				inside_word = 0;
+			}
+		}
+		else
+			inside_word = 1;
+		i++;
+	}
+	if (inside_word)
+		count++;
+	return (count);
+}
+
+char	**ft_split(const char *str, char delimiter)
+{
+	char	**result;
+	size_t	part_count;
+	size_t	start;
+	size_t	end;
+	size_t	i;
+
+	part_count = count_parts(str, delimiter);
+	result = (char **)malloc((part_count + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	i = 0;
+	start = 0;
+	while (i < part_count)
+	{
+		while (str[start] && str[start] == delimiter)
+			start++;
+		end = start;
+		while (str[end] && str[end] != delimiter)
+			end++;
+		result[i] = ft_strndup(&str[start], end - start);
+		if (!result[i])
+			return (NULL);
+		i++;
+		start = end;
+	}
+	result[i] = NULL;
+	return (result);
+}
+
+// int main()
 // {
-// 	int size;
+// 	const char *input = " 1   3  3 ";
+// 	char delimiter = ' ';
+// 	char **parts = ft_split(input, delimiter);
 
-// 	size = 0;
-// 	while (*s){
-// 		if (*s != c)
-// 			size++;
-// 		s++;
-// 	}
-// 	return (size);
-// }
-
-
-// char **ft_split(char const *s, char c)
-// {
-// 	char	**array;
-// 	int		len;
-// 	int		i;
-
-// 	array = (char **)malloc((return_array_size(s, c) + 1) * sizeof(char));
-// 	if (!array)
-// 		return (NULL)
-
-// 	while (*s)
+// 	if (parts)
 // 	{
-// 		len = 0;
-// 		while (*s && *s != c)
+// 		int i = 0;
+// 		while (parts[i])
 // 		{
-// 			s++;
-// 			len++
+// 			printf("Part %d: %s\n", (i + 1), parts[i]);
+// 			free(parts[i]);
+// 			i++;
 // 		}
+// 		free(parts);
 // 	}
+// 	return 0;
 // }
-
-// // beep a boop a doop

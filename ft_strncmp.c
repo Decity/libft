@@ -6,12 +6,11 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:53:52 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/05 12:55:45 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/09 13:44:24 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -22,17 +21,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	return (s1[i] - s2[i]);
 }
-
-int	main(void)
-{
-	char *str1 = "abcz";
-	char *str2 = "abcaf";
-
-	printf("dif: %i\n", ft_strncmp(str1, str2, 4));
-
-	printf("dif: %i\n", strncmp(str1, str2, 4));
-	return (1);
-}
-
-// s1 = abc
-// s2 = ab

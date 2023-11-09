@@ -6,26 +6,31 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:05:45 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/05 13:48:12 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/08 10:09:13 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-// void	*ft_memmove(void *dest, const void *src, size_t n)
-// {
-// 	const char	*byte_src;
-// 	char		*byte_dest;
-// 	size_t		i;
+void *ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char *byte_dst;
+	const unsigned char *byte_src;
 
-// 	byte_dest = (char *)dest;
-// 	byte_src = (const char *)src;
-// 	i = 0;
-// 	if (byte_dest > byte_src)
-// 		while (n-- > 0)
+	byte_src = (const unsigned char *)src;
+	byte_dst = (unsigned char *)dest;
+	if (byte_dst < byte_src)
+	{
+		while (n-- > 0)
+			*byte_dst++ = *byte_src++;
+	}
+	else
+	{
+		byte_dst += n;
+		byte_src += n;
+		while (n-- > 0)
+			*(--byte_dst) = *(--byte_src);
+	}
 
-
-// }
-
-
-// // come back to this later. I don't understand what's going on
+	return (dest);
+}

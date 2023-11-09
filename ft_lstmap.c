@@ -6,11 +6,11 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:57:59 by elie              #+#    #+#             */
-/*   Updated: 2023/11/02 17:58:01 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/09 13:38:45 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

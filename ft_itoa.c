@@ -6,65 +6,106 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:42:35 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/05 12:58:50 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/09 14:39:39 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-unsigned int	get_num_size(int n)
+// size_t	ft_strlen(const char *s)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (s[i])
+// 		i++;
+// 	return (i);
+// }
+
+// size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+// {
+// 	size_t	src_len;
+
+// 	src_len = ft_strlen(src);
+// 	while (*src && size-- > 1)
+// 		*dst++ = *src++;
+// 	*dst = '\0';
+// 	return (src_len);
+// }
+
+static unsigned int	get_digits(int n)
 {
-	size_t	size;
+	size_t	digits;
 
-	size = 0;
+	digits = 0;
 	if (n == 0)
 		return (1);
 	if (n < 0)
 	{
 		n = -n;
-		size++;
+		digits++;
 	}
 	while (n >= 10)
 	{
 		n /= 10;
-		size++;
+		digits++;
 	}
-	size++;
-	return (size);
+	digits++;
+	return (digits);
 }
+
+
 
 char	*ft_itoa(int n)
 {
-	int		size;
+	int		digits;
 	char	*str;
+	int		is_neg;
 
-	size = get_num_size(n);
-	str = (char *)malloc((size + 1) * sizeof(char));
-	if (!str)
+	is_neg = 0;
+	digits = get_digits(n);
+	if (!(str = (char *)malloc((digits + 1) * sizeof(char))))
 		return (NULL);
-	str[size] = '\0';
+	str[digits] = '\0';
 	if (n < 0)
 	{
-		str[0] = '-';
+		if (n == INT_MIN)
+		{
+			ft_strlcpy(str, "-2147483648", 12);
+			return (str);
+		}
+		is_neg = 1;
 		n = -n;
 	}
-	while (size-- > 0)
+	while (digits-- > 0)
 	{
-		str[size] = '0' + n % 10;
+		str[digits] = '0' + (n % 10);
 		n /= 10;
 	}
+	if (is_neg == 1)
+		str[0] = '-';
 	return (str);
 }
 
 
-// function name ft_itoa
-// Prototype char *ft_itoa(int n);
-// Turn in files -
-// Parameters n: the integer to convert.
-// Return value The string representing the integer.
-// NULL if the allocation fails.
-// External functs. malloc
-// Description Allocates (with malloc(3)) and returns a string
-// representing the integer received as an argument.
-// Negative numbers must be handled.
-// 8
+// int main()
+// {
+//     int test_values[] = {0, 123, -456, 7890, -10000, INT_MAX, INT_MIN};
+//     int i = 0;
+
+//     while (i < sizeof(test_values) / sizeof(test_values[0]))
+//     {
+//         char *custom_result = ft_itoa(test_values[i]);
+
+//         printf("Test Value: %d\n", test_values[i]);
+//         printf("Result (ft_itoa): %s\n\n", custom_result);
+
+// 		free(custom_result);
+//         i++;
+//     }
+
+//     return 0;
+// }
