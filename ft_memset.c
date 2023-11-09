@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:47:44 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/08 10:10:32 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/09 17:17:33 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	byteptr = (unsigned char *)s;
 	while (n-- > 0)
+	{
 		*byteptr++ = c;
-
-	return (byteptr);
+	}
+	return (s);
 }

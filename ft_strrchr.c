@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 13:37:34 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/09 13:44:34 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/09 16:22:01 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (s[j])
 	{
 		if (s[j] == c)
-			return ((char*)&s[j]);
+			return ((char *)&s[j]);
 		j--;
 	}
 	return (NULL);

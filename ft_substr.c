@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 13:47:49 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/05 12:56:06 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/09 16:25:43 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return_str[i] = '\0';
 	return (return_str);
 }
-

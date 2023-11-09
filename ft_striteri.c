@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:58:20 by elie              #+#    #+#             */
-/*   Updated: 2023/11/02 17:58:26 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/09 16:24:08 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
@@ -17,7 +16,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 
 	i = 0;
 	if (!s || !f)
-		return;
+		return ;
 	while (s[i])
 		f(i, &s[i++]);
 }

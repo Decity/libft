@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:42:35 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/09 14:39:39 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/09 16:49:08 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,14 @@
 // size_t	ft_strlen(const char *s)
 // {
 // 	int	i;
-
 // 	i = 0;
 // 	while (s[i])
 // 		i++;
 // 	return (i);
 // }
-
 // size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 // {
 // 	size_t	src_len;
-
 // 	src_len = ft_strlen(src);
 // 	while (*src && size-- > 1)
 // 		*dst++ = *src++;
@@ -57,8 +54,6 @@ static unsigned int	get_digits(int n)
 	return (digits);
 }
 
-
-
 char	*ft_itoa(int n)
 {
 	int		digits;
@@ -67,7 +62,8 @@ char	*ft_itoa(int n)
 
 	is_neg = 0;
 	digits = get_digits(n);
-	if (!(str = (char *)malloc((digits + 1) * sizeof(char))))
+	str = (char *)malloc((digits + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
 	str[digits] = '\0';
 	if (n < 0)
@@ -90,22 +86,17 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-
 // int main()
 // {
 //     int test_values[] = {0, 123, -456, 7890, -10000, INT_MAX, INT_MIN};
 //     int i = 0;
-
 //     while (i < sizeof(test_values) / sizeof(test_values[0]))
 //     {
 //         char *custom_result = ft_itoa(test_values[i]);
-
 //         printf("Test Value: %d\n", test_values[i]);
 //         printf("Result (ft_itoa): %s\n\n", custom_result);
-
 // 		free(custom_result);
 //         i++;
 //     }
-
 //     return 0;
 // }

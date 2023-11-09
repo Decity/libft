@@ -6,13 +6,15 @@
 /*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:20:52 by ebayat            #+#    #+#             */
-/*   Updated: 2023/10/09 14:46:21 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/09 17:09:00 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalnum(int c)
 {
-	if ((c >= 'A' && c <= 'z') || (c >= '0' && c <= '9'))
+	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
 	return (0);
 }

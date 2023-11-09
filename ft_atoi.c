@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:38:48 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/09 13:36:33 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/09 16:02:22 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	while (ft_iswhitespace(str[i]))
 		i++;
-	while (str[i] == '+' || str[i] == '-') // should check once. return 0 if theres' multiple signs
+	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			sign *= -1;
@@ -73,4 +73,3 @@ int	ft_atoi(const char *str)
 
 //     return 0;
 // }
-

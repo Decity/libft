@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/09 16:20:07 by ebayat            #+#    #+#             */
+/*   Updated: 2023/11/09 16:48:07 by ebayat           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <stdio.h>
 
-char	*ft_strndup(const char *src, size_t n)
+static char	*ft_strndup(const char *src, size_t n)
 {
 	char	*dest;
 	size_t	i;
@@ -19,12 +31,15 @@ char	*ft_strndup(const char *src, size_t n)
 	return (dest);
 }
 
-size_t	count_parts(const char *str, char delimiter)
+static size_t	count_parts(const char *str, char delimiter)
 {
-	size_t count = 0;
-	size_t i = 0;
-	int inside_word = 0;
+	size_t	count;
+	size_t	i;
+	int		inside_word;
 
+	count = 0;
+	i = 0;
+	inside_word = 0;
 	while (str[i])
 	{
 		if (str[i] == delimiter)
