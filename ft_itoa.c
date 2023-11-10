@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:42:35 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/10 13:43:11 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/10 16:04:29 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,15 @@ static unsigned int	get_digits(int n)
 		n = -n;
 		digits++;
 	}
-	while (n >= 10)
+	while (n != 0)
 	{
 		n /= 10;
 		digits++;
 	}
-	digits++;
 	return (digits);
 }
 
-static void	convert(char *str, int n, int digits, int is_neg)
+static void	convert(char *str, long int n, int digits, int is_neg)
 {
 	while (digits-- > 0)
 	{
@@ -67,27 +66,24 @@ static void	convert(char *str, int n, int digits, int is_neg)
 
 char	*ft_itoa(int n)
 {
-	int		digits;
-	char	*str;
-	int		is_neg;
+	int			digits;
+	char		*str;
+	int			is_neg;
+	long int	num;
 
+	num = n;
 	is_neg = 0;
 	digits = get_digits(n);
 	str = (char *)malloc((digits + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	str[digits] = '\0';
-	if (n < 0)
+	if (num < 0)
 	{
-		if (n == INT_MIN)
-		{
-			ft_strlcpy(str, "-2147483648", 12);
-			return (str);
-		}
 		is_neg = 1;
-		n = -n;
+		num = -num;
 	}
-	convert(str, n, digits, is_neg);
+	convert(str, num, digits, is_neg);
 	return (str);
 }
 

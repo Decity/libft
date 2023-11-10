@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:57:50 by elie              #+#    #+#             */
-/*   Updated: 2023/11/09 13:41:15 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/10 15:46:05 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	if (lst == NULL)
+		return (NULL);
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
