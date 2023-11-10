@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:42:35 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/09 19:18:13 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/10 13:43:11 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	convert(char *str, int n, int digits, int is_neg)
 		str[0] = '-';
 }
 
-char	 *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		digits;
 	char	*str;
