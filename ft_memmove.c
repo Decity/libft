@@ -6,7 +6,7 @@
 /*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:05:45 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/09 16:26:04 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/10 14:57:17 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char		*byte_dst;
 	const unsigned char	*byte_src;
 
+	if (!dest || !src || !n)
+		return (dest);
 	byte_src = (const unsigned char *)src;
 	byte_dst = (unsigned char *)dest;
 	if (byte_dst < byte_src)
