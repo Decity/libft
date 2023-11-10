@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:29:07 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/05 12:59:37 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/10 12:47:50 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	array = malloc(nmemb * size);
 	if (!array)
 		return (NULL);
-	ft_bzero(array, nmemb);
+	ft_bzero(array, nmemb * size);
 	return (array);
 }

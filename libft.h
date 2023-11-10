@@ -43,6 +43,7 @@ char	*ft_strdup(const char *s1);
 /* Additional Functions */
 char	*ft_itoa(int n);
 char	*ft_strjoin(const char *s1, const char *s2);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_substr(const char *s, unsigned int start, size_t len);

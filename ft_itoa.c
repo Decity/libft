@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:42:35 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/09 16:49:08 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/09 19:18:13 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,18 @@ static unsigned int	get_digits(int n)
 	return (digits);
 }
 
-char	*ft_itoa(int n)
+static void	convert(char *str, int n, int digits, int is_neg)
+{
+	while (digits-- > 0)
+	{
+		str[digits] = '0' + (n % 10);
+		n /= 10;
+	}
+	if (is_neg == 1)
+		str[0] = '-';
+}
+
+char	 *ft_itoa(int n)
 {
 	int		digits;
 	char	*str;
@@ -76,13 +87,7 @@ char	*ft_itoa(int n)
 		is_neg = 1;
 		n = -n;
 	}
-	while (digits-- > 0)
-	{
-		str[digits] = '0' + (n % 10);
-		n /= 10;
-	}
-	if (is_neg == 1)
-		str[0] = '-';
+	convert(str, n, digits, is_neg);
 	return (str);
 }
 
