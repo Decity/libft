@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:20:07 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/09 16:48:07 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/12 20:04:13 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ static char	*ft_strndup(const char *src, size_t n)
 	}
 	dest[i] = '\0';
 	return (dest);
+}
+
+static void	free_array( size_t i, char **array)
+{
+	while (i--)
+		free(array[i]);
+	free(array);
 }
 
 static size_t	count_parts(const char *str, char delimiter)
@@ -59,35 +66,47 @@ static size_t	count_parts(const char *str, char delimiter)
 	return (count);
 }
 
-char	**ft_split(const char *str, char delimiter)
+static char	**split(const char *str, char c, char **array, size_t word_count)
 {
-	char	**result;
-	size_t	part_count;
 	size_t	start;
 	size_t	end;
 	size_t	i;
 
-	part_count = count_parts(str, delimiter);
-	result = (char **)malloc((part_count + 1) * sizeof(char *));
-	if (!result)
-		return (NULL);
 	i = 0;
 	start = 0;
-	while (i < part_count)
+	while (i < word_count)
 	{
-		while (str[start] && str[start] == delimiter)
+		while (str[start] && str[start] == c)
 			start++;
 		end = start;
-		while (str[end] && str[end] != delimiter)
+		while (str[end] && str[end] != c)
 			end++;
-		result[i] = ft_strndup(&str[start], end - start);
-		if (!result[i])
+		array[i] = ft_strndup(&str[start], end - start);
+		if (!array[i])
+		{
+			free_array(i, array);
 			return (NULL);
+		}
 		i++;
 		start = end;
 	}
-	result[i] = NULL;
-	return (result);
+	array[i] = NULL;
+	return (array);
+}
+
+char	**ft_split(const char *str, char delimiter)
+{
+	char	**array;
+	size_t	word_count;
+
+	if (!str)
+		return (NULL);
+	word_count = count_parts(str, delimiter);
+	array = (char **)malloc((word_count + 1) * sizeof(char *));
+	if (!array)
+		return (NULL);
+	array = split(str, delimiter, array, word_count);
+	return (array);
 }
 
 // int main()
