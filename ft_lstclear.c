@@ -6,7 +6,7 @@
 /*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:57:18 by elie              #+#    #+#             */
-/*   Updated: 2023/11/10 16:48:11 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/13 14:14:40 by ebayat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*next;
-
-	if (!del || !lst)
+	if (!del || !lst || !*lst)
 		return ;
-	while (*lst)
-	{
-		next = (*lst)->next;
-		del((*lst)->content);
-		free(*lst);
-		*lst = next;
-	}
+	ft_lstclear(&(*lst)->next, del);
+	del((*lst)->content);
+	free(*lst);
 	*lst = NULL;
 }
