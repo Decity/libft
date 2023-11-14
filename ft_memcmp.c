@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:10:35 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/09 13:40:05 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/14 17:33:32 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;
-	while (n-- > 0)
+	while (n--)
 	{
 		if (*str1 != *str2)
 			return (*str1 - *str2);

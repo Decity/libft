@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:04:58 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/05 12:59:32 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/14 18:05:20 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*ptr_s;
 
 	ptr_s = (unsigned char *)s;
-	while (n-- > 0)
+	while (n--)
 		*ptr_s++ = 0;
 }

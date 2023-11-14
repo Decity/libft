@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:58:07 by elie              #+#    #+#             */
-/*   Updated: 2023/11/09 16:26:19 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/14 17:33:04 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_lstsize(t_list *lst)
 	int	i;
 
 	i = 0;
-	if (lst == NULL)
+	if (!lst)
 		return (0);
 	while (lst)
 	{

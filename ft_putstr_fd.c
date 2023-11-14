@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:19:08 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/05 14:10:23 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/14 17:37:19 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
-		ft_putchar_fd(*s++, fd);
+	write(fd, (unsigned char *)s, ft_strlen(s));
 }

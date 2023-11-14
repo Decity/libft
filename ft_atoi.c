@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:38:48 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/10 15:48:17 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/14 15:26:05 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,33 +43,3 @@ int	ft_atoi(const char *str)
 	}
 	return (num * sign);
 }
-
-// int main()
-// {
-//     const char *test_strings[] = {
-//         " 123",
-//         "   -456",
-//         "789  ",
-//         " +100",
-//         " - 200",
-//         "12a34",
-//         "0",
-//         " 2147483647",
-//         " -2147483648",
-//     };
-
-//     int i = 0;
-//     while (i < sizeof(test_strings) / sizeof(test_strings[0]))
-//     {
-//         int expected_result = atoi(test_strings[i]);
-//         int custom_result = ft_atoi(test_strings[i]);
-
-//         printf("Test String: \"%s\"\n", test_strings[i]);
-//         printf("Expected Result (atoi): %d\n", expected_result);
-//         printf("Custom Result (ft_atoi): %d\n\n", custom_result);
-
-//         i++;
-//     }
-
-//     return 0;
-// }

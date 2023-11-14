@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:29:07 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/10 12:47:50 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/14 18:19:22 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*array;
 
+	if (nmemb && size && nmemb > (SIZE_MAX / size))
+		return (NULL);
 	array = malloc(nmemb * size);
 	if (!array)
 		return (NULL);

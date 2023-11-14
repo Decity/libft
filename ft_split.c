@@ -6,19 +6,18 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:20:07 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/12 20:04:13 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/14 17:52:16 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 static char	*ft_strndup(const char *src, size_t n)
 {
 	char	*dest;
 	size_t	i;
 
-	dest = (char *)malloc(n + 1);
+	dest = ft_calloc(n + 1, sizeof(char));
 	if (!dest)
 		return (NULL);
 	i = 0;
@@ -27,7 +26,6 @@ static char	*ft_strndup(const char *src, size_t n)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 
@@ -102,29 +100,9 @@ char	**ft_split(const char *str, char delimiter)
 	if (!str)
 		return (NULL);
 	word_count = count_parts(str, delimiter);
-	array = (char **)malloc((word_count + 1) * sizeof(char *));
+	array = ft_calloc((word_count + 1), sizeof(char *));
 	if (!array)
 		return (NULL);
 	array = split(str, delimiter, array, word_count);
 	return (array);
 }
-
-// int main()
-// {
-// 	const char *input = " 1   3  3 ";
-// 	char delimiter = ' ';
-// 	char **parts = ft_split(input, delimiter);
-
-// 	if (parts)
-// 	{
-// 		int i = 0;
-// 		while (parts[i])
-// 		{
-// 			printf("Part %d: %s\n", (i + 1), parts[i]);
-// 			free(parts[i]);
-// 			i++;
-// 		}
-// 		free(parts);
-// 	}
-// 	return 0;
-// }

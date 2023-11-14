@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:44:01 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/09 17:11:33 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/14 17:33:41 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	byte_src = (char *)src;
 	if (!dest && !src)
 		return (NULL);
-	while (n-- > 0)
+	while (n--)
 		*byte_dst++ = *byte_src++;
 	return (dest);
 }

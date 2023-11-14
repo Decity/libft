@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebayat <ebayat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:42:35 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/10 16:04:29 by ebayat           ###   ########.fr       */
+/*   Updated: 2023/11/14 17:52:48 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,6 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-// size_t	ft_strlen(const char *s)
-// {
-// 	int	i;
-// 	i = 0;
-// 	while (s[i])
-// 		i++;
-// 	return (i);
-// }
-// size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-// {
-// 	size_t	src_len;
-// 	src_len = ft_strlen(src);
-// 	while (*src && size-- > 1)
-// 		*dst++ = *src++;
-// 	*dst = '\0';
-// 	return (src_len);
-// }
 
 static unsigned int	get_digits(int n)
 {
@@ -53,14 +35,14 @@ static unsigned int	get_digits(int n)
 	return (digits);
 }
 
-static void	convert(char *str, long int n, int digits, int is_neg)
+static void	convert(char *str, long int n, int digits, int negative)
 {
-	while (digits-- > 0)
+	while (digits--)
 	{
 		str[digits] = '0' + (n % 10);
 		n /= 10;
 	}
-	if (is_neg == 1)
+	if (negative)
 		str[0] = '-';
 }
 
@@ -68,36 +50,20 @@ char	*ft_itoa(int n)
 {
 	int			digits;
 	char		*str;
-	int			is_neg;
+	int			negative;
 	long int	num;
 
 	num = n;
-	is_neg = 0;
+	negative = 0;
 	digits = get_digits(n);
-	str = (char *)malloc((digits + 1) * sizeof(char));
+	str = ft_calloc((digits + 1), sizeof(char));
 	if (!str)
 		return (NULL);
-	str[digits] = '\0';
 	if (num < 0)
 	{
-		is_neg = 1;
+		negative = 1;
 		num = -num;
 	}
-	convert(str, num, digits, is_neg);
+	convert(str, num, digits, negative);
 	return (str);
 }
-
-// int main()
-// {
-//     int test_values[] = {0, 123, -456, 7890, -10000, INT_MAX, INT_MIN};
-//     int i = 0;
-//     while (i < sizeof(test_values) / sizeof(test_values[0]))
-//     {
-//         char *custom_result = ft_itoa(test_values[i]);
-//         printf("Test Value: %d\n", test_values[i]);
-//         printf("Result (ft_itoa): %s\n\n", custom_result);
-// 		free(custom_result);
-//         i++;
-//     }
-//     return 0;
-// }
