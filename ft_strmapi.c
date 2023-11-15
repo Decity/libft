@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:58:34 by elie              #+#    #+#             */
-/*   Updated: 2023/11/14 17:53:18 by elie             ###   ########.fr       */
+/*   Updated: 2023/11/15 12:07:53 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	char			*cstr;
-
-	i = 0;
-	cstr = ft_calloc((ft_strlen(s) + 1), sizeof(char));
+	char*	cstr = ft_calloc((ft_strlen(s) + 1), sizeof(char));
 	if (!cstr || !s || !f)
 		return (NULL);
-	while (s[i])
-	{
+
+	for (unsigned int i = 0; s[i]; i++)
 		cstr[i] = f(i, (char)s[i]);
-		i++;
-	}
+
 	return (cstr);
 }

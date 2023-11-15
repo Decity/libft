@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:38:48 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/14 15:26:05 by elie             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
 static int	ft_iswhitespace(char c)
@@ -21,25 +9,26 @@ static int	ft_iswhitespace(char c)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	num;
-	int	sign;
+	int	i = 0;
+	int	num = 0;
+	int	sign = 1;
 
-	num = 0;
-	sign = 1;
-	i = 0;
+
 	while (ft_iswhitespace(str[i]))
 		i++;
+
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-' )
 			sign *= -1;
 		i++;
 	}
+
 	while (ft_isdigit(str[i]))
 	{
 		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
+
 	return (num * sign);
 }

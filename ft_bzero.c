@@ -1,22 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 16:04:58 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/14 18:05:20 by elie             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*ptr_s;
+	unsigned char	*ptr_s = (unsigned char *)s;
 
-	ptr_s = (unsigned char *)s;
 	while (n--)
 		*ptr_s++ = 0;
 }

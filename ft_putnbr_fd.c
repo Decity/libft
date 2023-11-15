@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 15:31:29 by ebayat            #+#    #+#             */
-/*   Updated: 2023/11/14 17:35:25 by elie             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
@@ -17,14 +5,17 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n == INT_MIN)
 	{
 		ft_putstr_fd("-2147483648", fd);
-		return ;
+		return;
 	}
+
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
 		n *= -1;
 	}
+
 	if (n >= 10)
 		ft_putnbr_fd(n / 10, fd);
+
 	ft_putchar_fd(('0' + n % 10), fd);
 }
