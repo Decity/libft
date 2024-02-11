@@ -6,20 +6,21 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:58:53 by ebayat            #+#    #+#             */
-/*   Updated: 2024/02/11 12:31:31 by elie             ###   ########.fr       */
+/*   Updated: 2024/02/11 19:03:42 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <limits.h>
-# include <stdint.h>
 # include <fcntl.h>
+# include <limits.h>
+# include <stdbool.h>
+# include <stdarg.h>
+# include <stdint.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
@@ -104,5 +105,10 @@ void	read_to_buffer(int fd, char **buffer);
 size_t	gnl_strlen(char *s);
 char	*gnl_strchr(char *s, int c);
 void	gnl_strjoin(char **buffer, char *recently_read);
+
+// to sort
+size_t	ft_count_words(const char *str, char delimiter);
+void	ft_free_array( size_t i, char **array);
+char	*ft_strndup(const char *src, size_t n);
 
 #endif

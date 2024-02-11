@@ -6,63 +6,11 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:20:07 by ebayat            #+#    #+#             */
-/*   Updated: 2024/02/09 17:41:39 by elie             ###   ########.fr       */
+/*   Updated: 2024/02/11 18:34:36 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
-
-static char	*ft_strndup(const char *src, size_t n)
-{
-	char	*dest;
-	size_t	i;
-
-	dest = ft_calloc(n + 1, sizeof(char));
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	return (dest);
-}
-
-static void	free_array( size_t i, char **array)
-{
-	while (i--)
-		free(array[i]);
-	free(array);
-}
-
-static size_t	count_parts(const char *str, char delimiter)
-{
-	size_t	count;
-	size_t	i;
-	int		inside_word;
-
-	count = 0;
-	i = 0;
-	inside_word = 0;
-	while (str[i])
-	{
-		if (str[i] == delimiter)
-		{
-			if (inside_word)
-			{
-				count++;
-				inside_word = 0;
-			}
-		}
-		else
-			inside_word = 1;
-		i++;
-	}
-	if (inside_word)
-		count++;
-	return (count);
-}
 
 static char	**split(const char *str, char c, char **array, size_t word_count)
 {
@@ -82,7 +30,7 @@ static char	**split(const char *str, char c, char **array, size_t word_count)
 		array[i] = ft_strndup(&str[start], end - start);
 		if (!array[i])
 		{
-			free_array(i, array);
+			ft_free_array(i, array);
 			return (NULL);
 		}
 		i++;
@@ -99,7 +47,7 @@ char	**ft_split(const char *str, char delimiter)
 
 	if (!str)
 		return (NULL);
-	word_count = count_parts(str, delimiter);
+	word_count = ft_count_words(str, delimiter);
 	array = ft_calloc((word_count + 1), sizeof(char *));
 	if (!array)
 		return (NULL);
