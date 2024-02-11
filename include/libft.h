@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:58:53 by ebayat            #+#    #+#             */
-/*   Updated: 2024/02/11 12:03:15 by elie             ###   ########.fr       */
+/*   Updated: 2024/02/11 12:31:31 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		ft_put_unum(unsigned long long int n);
 size_t	ft_hex_len(unsigned long long int num);
 
 // other
-void	free_and_null(char **ptr);
+void	ft_free_and_null(char **ptr);
 
 // get_next_line
 char	*get_next_line(int fd);

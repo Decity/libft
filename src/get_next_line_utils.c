@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:08:01 by elie              #+#    #+#             */
-/*   Updated: 2024/02/09 17:42:35 by elie             ###   ########.fr       */
+/*   Updated: 2024/02/11 12:31:31 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	gnl_strjoin(char **buffer, char *recently_read)
 	len = gnl_strlen(*buffer) + gnl_strlen(recently_read) + 1;
 	new_str = ft_calloc(len, sizeof(char));
 	if (!new_str)
-		return (free_and_null(buffer));
+		return (ft_free_and_null(buffer));
 	i = 0;
 	while ((*buffer)[i])
 	{
@@ -65,7 +65,7 @@ void	gnl_strjoin(char **buffer, char *recently_read)
 		new_str[i + j] = recently_read[j];
 		j++;
 	}
-	free_and_null(buffer);
+	ft_free_and_null(buffer);
 	*buffer = new_str;
 	return ;
 }

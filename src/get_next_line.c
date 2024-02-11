@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 17:03:20 by elie              #+#    #+#             */
-/*   Updated: 2024/02/09 17:42:15 by elie             ###   ########.fr       */
+/*   Updated: 2024/02/11 12:31:31 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@ void	read_to_buffer(int fd, char **buffer)
 
 	recently_read = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (recently_read == NULL)
-		return (free_and_null(buffer));
+		return (ft_free_and_null(buffer));
 	bytes_read = 1;
 	while (bytes_read != 0 && !gnl_strchr(*buffer, '\n'))
 	{
 		bytes_read = read(fd, recently_read, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			free_and_null(&recently_read);
-			free_and_null(buffer);
+			ft_free_and_null(&recently_read);
+			ft_free_and_null(buffer);
 			return ;
 		}
 		recently_read[bytes_read] = '\0';
 		gnl_strjoin(buffer, recently_read);
 		if (!*buffer)
-			return (free_and_null(&recently_read));
+			return (ft_free_and_null(&recently_read));
 	}
-	return (free_and_null(&recently_read));
+	return (ft_free_and_null(&recently_read));
 }
 
 void	extract_line_from_buffer(char **line, char **buffer)
@@ -52,7 +52,7 @@ void	extract_line_from_buffer(char **line, char **buffer)
 		i++;
 	new_line = ft_calloc((i + 1), sizeof(char));
 	if (!new_line)
-		return (free_and_null(buffer));
+		return (ft_free_and_null(buffer));
 	i = 0;
 	while ((*buffer)[i] && (*buffer)[i] != '\n')
 	{
@@ -71,22 +71,22 @@ void	update_buffer(char **line, char **buffer)
 	int		j;
 
 	if (!*line)
-		return (free_and_null(buffer));
+		return (ft_free_and_null(buffer));
 	i = 0;
 	while ((*buffer)[i] && (*buffer)[i] != '\n')
 		i++;
 	if (!(*buffer)[i])
-		return (free_and_null((buffer)));
+		return (ft_free_and_null((buffer)));
 	if ((*buffer)[0] == '\n')
 		i = 0;
 	new_buffer = ft_calloc((gnl_strlen(*buffer) - i + 1), sizeof(char));
 	if (!new_buffer)
-		return (free_and_null(line), free_and_null(buffer));
+		return (ft_free_and_null(line), ft_free_and_null(buffer));
 	j = 0;
 	i++;
 	while ((*buffer)[i])
 		new_buffer[j++] = (*buffer)[i++];
-	free_and_null(buffer);
+	ft_free_and_null(buffer);
 	*buffer = new_buffer;
 	return ;
 }
@@ -97,7 +97,7 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 
 	if (fd == -1 || BUFFER_SIZE <= 0)
-		return (free_and_null(&buffer), NULL);
+		return (ft_free_and_null(&buffer), NULL);
 	line = NULL;
 	if (!buffer)
 		buffer = ft_calloc(1, sizeof(char));

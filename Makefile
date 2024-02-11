@@ -17,7 +17,7 @@ SOURCE_FILES = \
 				ft_lstadd_back.c	ft_lstadd_front.c	ft_lstclear.c	ft_lstdelone.c	ft_lstiter.c		\
 				ft_lstlast.c 		ft_lstmap.c			ft_lstnew.c		ft_lstsize.c						\
 				ft_printf.c			ft_put_unum.c		ft_puthex.c		ft_hex_len.c	ft_put_address.c	\
-				get_next_line.c		get_next_line_utils.c													\
+				ft_free_and_null.c	get_next_line.c		get_next_line_utils.c								\
 
 OBJECT_FILES =			$(SOURCE_FILES:%.c=$(BUILD_DIR)%.o)
 

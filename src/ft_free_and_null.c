@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_and_null.c                                    :+:      :+:    :+:   */
+/*   ft_free_and_null.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../include/libft.h"
 
-void	free_and_null(char **ptr)
+void	ft_free_and_null(char **ptr)
 {
 	if (*ptr)
 		free(*ptr);
