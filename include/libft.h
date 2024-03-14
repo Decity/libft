@@ -6,7 +6,7 @@
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:58:53 by ebayat            #+#    #+#             */
-/*   Updated: 2024/02/11 19:03:42 by elie             ###   ########.fr       */
+/*   Updated: 2024/03/14 18:59:27 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
+# endif
+
+# ifndef HEX_BASE
+#  define HEX_BASE "012346789ABCDEF"
 # endif
 
 typedef struct s_list
@@ -110,5 +114,12 @@ void	gnl_strjoin(char **buffer, char *recently_read);
 size_t	ft_count_words(const char *str, char delimiter);
 void	ft_free_array( size_t i, char **array);
 char	*ft_strndup(const char *src, size_t n);
+unsigned int	ft_get_hex_value(int c);
+uint32_t		ft_hex_to_uint(const char *str);
+unsigned int	ft_ishex(int c);
+unsigned int	ft_isnl(int c);
+unsigned int	ft_isspace(int c);
+unsigned int	ft_istab(int c);
+unsigned int	ft_iswhitespace(int c);
 
 #endif
