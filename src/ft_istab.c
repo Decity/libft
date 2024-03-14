@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_istab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:38:48 by ebayat            #+#    #+#             */
-/*   Updated: 2024/03/14 19:00:33 by elie             ###   ########.fr       */
+/*   Created: 2024/03/14 18:49:42 by elie              #+#    #+#             */
+/*   Updated: 2024/03/14 18:56:21 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-int	ft_atoi(const char *str)
+unsigned int	ft_istab(int c)
 {
-	int	i;
-	int	num;
-	int	sign;
-
-	num = 0;
-	sign = 1;
-	i = 0;
-	while (ft_iswhitespace(str[i]))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-' )
-			sign *= -1;
-		i++;
-	}
-	while (ft_isdigit(str[i]))
-	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
-	}
-	return (num * sign);
+	if (c == '	')
+		return (1);
+	return (0);
 }

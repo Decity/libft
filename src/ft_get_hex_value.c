@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_get_hex_value.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:38:48 by ebayat            #+#    #+#             */
-/*   Updated: 2024/03/14 19:00:33 by elie             ###   ########.fr       */
+/*   Created: 2024/03/14 18:47:04 by elie              #+#    #+#             */
+/*   Updated: 2024/03/14 18:58:34 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-int	ft_atoi(const char *str)
+unsigned int	ft_get_hex_value(int c)
 {
-	int	i;
-	int	num;
-	int	sign;
+	char	*hex_val;
+	int		i;
 
-	num = 0;
-	sign = 1;
 	i = 0;
-	while (ft_iswhitespace(str[i]))
+	hex_val = HEX_BASE;
+	while (hex_val[i] && hex_val[i] != ft_toupper(c))
 		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-' )
-			sign *= -1;
-		i++;
-	}
-	while (ft_isdigit(str[i]))
-	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
-	}
-	return (num * sign);
+	return (i);
 }

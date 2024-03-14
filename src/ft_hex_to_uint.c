@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_hex_to_uint.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elie <elie@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:38:48 by ebayat            #+#    #+#             */
-/*   Updated: 2024/03/14 19:00:33 by elie             ###   ########.fr       */
+/*   Created: 2024/03/14 18:42:36 by elie              #+#    #+#             */
+/*   Updated: 2024/03/14 18:58:25 by elie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-int	ft_atoi(const char *str)
+uint32_t	ft_hex_to_uint(const char *str)
 {
-	int	i;
-	int	num;
-	int	sign;
+	unsigned int	value;
 
-	num = 0;
-	sign = 1;
-	i = 0;
-	while (ft_iswhitespace(str[i]))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	value = 0;
+	while (ft_iswhitespace(*str))
+		str++;
+	while (*str && ft_is_hex(*str))
 	{
-		if (str[i] == '-' )
-			sign *= -1;
-		i++;
+		if (ft_is_hex(*str))
+		{
+			value *= 16;
+			value += ft_get_hex_value(*str);
+		}
+		str++;
 	}
-	while (ft_isdigit(str[i]))
-	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
-	}
-	return (num * sign);
+	return (value);
 }
