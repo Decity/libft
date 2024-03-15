@@ -6,14 +6,11 @@ RM				= rm -vf
 SRC_DIR			= ./src/
 BUILD_DIR		= ./build/
 
-SRC_FILES := $(wildcard $(SRC_DIR)*.c)
+SRC_FILES		:= $(wildcard $(SRC_DIR)*.c)
 
-OBJECT_FILES	= \
-				$(SOURCE_FILES:%.c=$(BUILD_DIR)%.o)
+OBJECT_FILES	= $(SRC_FILES:$(SRC_DIR)%.c=$(BUILD_DIR)%.o)
 
 all: ${NAME}
-
-
 
 ${NAME}: ${OBJECT_FILES}
 	@${AR} $@ $?
